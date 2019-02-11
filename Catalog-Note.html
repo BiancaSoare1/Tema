@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="stilCatalog.css">
+<title> Lista Elevi </title> 
+</head>
+<body>
+    <div id="lista_elevi_wrapper"> 
+        <h3> Lista Elevi </h3> 
+        <form id="adaugadetalii">  
+        Nume:
+        <input type="text" name="nume"/>
+        <input type="submit" name="addElev" value="Adauga Elev"/> 
+        </form>
+        <div id="tabel"> 
+        <table> 
+        <button id="ascendent" class="sortare" type="button"> Sorteaza ascendent dupa medie note </button>
+        <br>
+        <button id="descendent" class="sortare" type="button"> Sorteaza descendent dupa medie note </button> 
+            <tr>
+            <th>Nume</th>
+            <th>Medie Note</th>
+            <th>Afiseaza note</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> 
+        </table>
+        </div> 
+    </div> 
+<script src="Catalog.js"></script>
+</body>
+</html>

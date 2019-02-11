@@ -1,0 +1,98 @@
+#header {
+
+	height: 300;
+	width: 100%;
+	background-image: linear-gradient(black,rgb(183, 54, 7));
+}
+
+#navmenu {
+
+	background-color: black;
+}
+
+#navmenu a {
+
+	color: white;
+	border-right: solid 1px;
+	padding-right: 35;
+	padding-left: 35;
+	text-decoration: none;
+
+}
+
+#aside {
+	float: left;
+	width: 250;
+	padding-bottom: 40;
+}
+
+#aside input[type=text] {
+    float: left;
+    padding: 6px;
+    border: solid;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    width: 150;
+}
+
+#aside button {
+	background-color: black;
+	color: white;
+	margin-top: 15px;
+}
+
+#aside p {
+	color: rgb(183, 54, 7);
+	font-size: 25;
+	font-weight: bold;
+}
+
+#section {
+	float: right;
+	padding-right: 100;
+	padding-top: 10;
+	width: 900;
+
+}
+
+#section h1 {
+	color: rgb(183, 54, 7);
+	font-size: 35;
+}
+
+#welcomearticle time {
+	font-size: 12;
+	color: lightgray;
+}
+
+#welcomearticle hr {
+	border-color: lightgray;
+}
+
+#welcomearticle a {
+	font-size: 12;
+	float: right;
+	padding-right: 10;
+}
+
+#secondarticle time {
+	font-size: 12;
+	color: lightgray;
+}
+
+#secondarticle hr {
+	border-color: lightgray;
+}
+
+#secondarticle a {
+	font-size: 12;
+	float: right;
+	padding-right: 10;
+}
+
+#footer {
+	background-color: rgb(183, 54, 7);
+	bottom: 0;
+	position: relative;
+}

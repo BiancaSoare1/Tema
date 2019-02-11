@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+            #Asc{
+                border-radius: 12%;
+                background-color:palevioletred; 
+            }
+            #Desc{
+                border-radius: 12%;
+                background-color:palevioletred; 
+            }
+            #items{
+                border-radius: 12%;
+                background-color:rgb(133, 250, 133);
+                
+            }
+            #alb{
+                background-color: rgb(241, 239, 235);
+                border-radius: 17%;
+            }
+            #fundal{
+                background-color: rgb(207, 173, 238);
+            }
+          		.invalid{
+				color:red;
+				border-color:red;
+				border-radius:5px;
+				font-style: italic;
+				background-color:rgba(255,0,0,0.1);
+			}
+			legend{
+				padding:2px 6px;
+                font-weight: bold;
+                font-size:50px;
+                text-align: center;
+			}
+
+		</style>
+		<script>
+			function minlength(elem,event,nr){
+				var v = elem.value;
+				if(v.length<nr){
+					elem.classList.add("invalid");
+				}else{
+					elem.classList.remove("invalid");
+				}
+			}
+			function valideazaFormular(form,event){
+				event.preventDefault();
+				minlength(document.querySelector("[name=nume]"),event,3);
+				minlength(document.querySelector("[name=prenume]"),event,2);
+			}
+			function adaugaInput(){
+				var container = document.querySelector("#containerNrTel");
+				container.innerHTML+='<input type="text" placeholder="nr tel"/>';
+			}
+		</script>
+	</head>
+	<body id="fundal">
+        <div id="white"> 
+        <form onsubmit="valideazaFormular(this,event);">
+                <legend>Shopping List</legend>
+			<fieldset id="alb">	
+				<input type="text" placeholder=""/>
+				<input id="items" type="button" 
+                value="Add Items" onclick="adaugaInput();"/><br/>
+                <br/>
+                <br/>
+                <input id="Asc" type="button" value="Sort Asc";>
+                <input id="Desc" type="button" value="Sort desc";>
+			</fieldset>
+        </form>
+    </div>
+	</body>
+</html>

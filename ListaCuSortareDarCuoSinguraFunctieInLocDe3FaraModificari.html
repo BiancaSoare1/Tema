@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.deleteBtn{
+				background-color:red;
+			}
+		</style>
+		<script>
+			var persoane=[
+				{
+					nume:"Ion3",
+					prenume:"Gigel",
+					telefon:"0700000000"
+				},
+				{
+					nume:"Ion1",
+					prenume:"Gigel1",
+					telefon:"0700000001"
+				},
+				{
+					nume:"Ion2",
+					prenume:"Gigel2",
+					telefon:"0700000002"
+				}
+			];
+			var indexEditare = -1;
+			console.log(persoane);
+			function deseneazaTabel(){
+				var str = "";
+				for(var i=0;i<persoane.length;i++){
+					str += `<tr>
+								<td><img width =50 src="https://i.ytimg.com/vi/nhqiz5wAiwM/maxresdefault.jpg" /></td>
+								<td>${persoane[i].nume}</td>
+								<td>${persoane[i].prenume}</td>
+								<td>${persoane[i].telefon}</td>
+								<td>
+									<button class="deleteBtn" onclick="sterge(${i});">DELETE</button>
+									<button class="editBtn" onclick="editeaza(${i});">EDIT</button>
+								</td>
+							</tr>`;
+				}
+				
+				console.log(str);
+				document.querySelector("table tbody").innerHTML=str;
+			}
+			function sortare(coloana){
+				persoane.sort(function (a,b){
+					if(a[coloana]>b[coloana]){
+						return 1;
+					}
+					if(a[coloana]<b[coloana]){
+						return -1;
+					}
+					return 0;
+				});
+				console.log(persoane);
+				deseneazaTabel();
+			}
+			function adauga(t,event){
+				event.preventDefault();
+				/*var pers = {};
+				pers.nume = t.querySelector("[name=nume]").value;
+				pers["prenume"]=t.querySelector("[name=prenume]").value;
+				pers.telefon=t.querySelector("[name=telefon]").value;
+				
+				var pers = {
+					nume: t.querySelector("[name=nume]").value,
+					prenume:t.querySelector("[name=prenume]").value,
+					telefon:t.querySelector("[name=telefon]").value
+				};
+				*/
+				
+				var pers = {};
+				var inputs = t.querySelectorAll("input[name]");
+				for(var i=0;i<inputs.length;i++){
+					var a = inputs[i].getAttribute("name");
+					var v = inputs[i].value;
+					pers[a] = v;
+				}
+				if(indexEditare===-1){
+					persoane.push(pers);
+				}else{
+					persoane.splice(indexEditare,1,pers);
+					indexEditare = -1;
+				}
+				deseneazaTabel();
+				t.reset();
+			}
+			function sterge(idx){
+				if(confirm("Do you want to delete?")){
+					persoane.splice(idx,1);
+					deseneazaTabel();
+				}
+			}
+			function editeaza(idx){
+				var persoana = persoane[idx];
+				var inputs = document.querySelectorAll("#formAdaugare input[name]");
+				for(var i=0;i<inputs.length;i++){
+					var a = inputs[i].getAttribute("name");
+					inputs[i].value=persoana[a];	
+				}
+				console.log(idx,persoana);
+				indexEditare=idx;
+			}
+		</script>
+	</head>
+	<body onload="deseneazaTabel();">
+		<form id="formAdaugare" onsubmit="adauga(this,event)">
+			<input name="nume" type="text" placeholder="Nume" />
+			<input name="prenume" type="text" placeholder="Prenume" />
+			<input name="telefon" type="text" placeholder="Telefon" />
+			
+			<input type="submit" />
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<td>Poza</td>
+					<td onclick="sortare('nume');">Nume</td>
+					<td onclick="sortare('prenume');">Prenume</td>
+					<td onclick="sortare('telefon');">Telefon</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</body>
+</html>

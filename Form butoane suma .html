@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+    /* functie care calculeaza suma dupa inputurile puse de utilizator */ 
+    function caluleaza(){
+        document.getElementById("suma").value = 
+        parseFloat(document.getElementById("a").value) +
+        parseInt(document.getElementById("b").value)
+    }
+</script>
+</head>
+<body>
+<p id="salut"> Compleateaza camp de mai jos cu numele:</p>
+<input type="text" id="a"/> 
+<input type="text" id="b"/> 
+<input type="button" value="Sum me!" onclick="caluleaza()"/> <br/>
+<input type="text" id="suma"/> 
+</body>
+</html>
